@@ -13,29 +13,6 @@ jobs:
     machine:
       image: ubuntu-2004:202101-01
     resource_class: arm.medium
-    services:
-      redis:
-        image: redis
-        ports:
-         - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-      sentinel:
-        image: bitnami/redis-sentinel
-        ports:
-          - 26379:26379
-        options: >-
-          --health-cmd "redis-cli -p 26379 ping"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        env:
-          REDIS_MASTER_HOST: redis
-          REDIS_MASTER_SET: sentinel
-          REDIS_SENTINEL_QUORUM: "1"
     steps:
       - checkout
       - run: git submodule sync
