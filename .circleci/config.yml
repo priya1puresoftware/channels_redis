@@ -27,7 +27,7 @@ jobs:
              python3 -m pip install backports.zoneinfo
              python3 -m pip install --upgrade pip wheel setuptools tox 
              python3 setup.py install 
-             sudo apt install redis-server --allow-downgrade
+             sudo apt install redis-server
              sudo service redis-server start 
              tox -e py38 
 workflows:
