@@ -12,8 +12,6 @@ jobs:
 
     machine:
       image: ubuntu-2004:202101-01
-      environment:
-        REDIS_URL: redis://localhost:6391
     resource_class: arm.medium
     steps:
       - checkout
@@ -30,7 +28,6 @@ jobs:
              python3 -m pip install --upgrade pip wheel setuptools tox 
              python3 setup.py install 
              sudo apt install redis-server --allow-downgrade
-             sudo service redis-server start --port 6391
              sudo service redis-server start 
              tox -e py38 
 workflows:
