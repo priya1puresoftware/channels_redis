@@ -18,11 +18,6 @@ jobs:
       - run: git submodule sync
       - run: git submodule update --init
       - run:
-          name: Build image
-          command: |
-            source .ci/ubuntu_ci.sh
-            update_version_metadata
-      - run:
           name: Install dependencies
           command: |
             bash -exc 'apt-get update && apt-get -y install python3.8 curl git && \
