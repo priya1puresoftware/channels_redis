@@ -29,8 +29,8 @@ jobs:
              python3 setup.py install 
              sudo apt install redis-server
              sudo service redis-server start 
-             pip3 install tox pytest async_generator
-             pytest
+             pip3 install tox
+             tox -e py38
 workflows:
   version: 2.1
   main:
