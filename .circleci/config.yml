@@ -30,6 +30,9 @@ jobs:
              sudo apt install redis-server
              sudo service redis-server start 
              pip3 install tox
+             export REDIS_MASTER_HOST=redis
+             export REDIS_MASTER_SET=sentinel
+             export REDIS_SENTINEL_QUORUM=1
              tox -e py38
 workflows:
   version: 2.1
